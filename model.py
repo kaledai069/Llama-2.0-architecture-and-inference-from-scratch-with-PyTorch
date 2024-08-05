@@ -291,7 +291,7 @@ class Transformer(nn.Module):
         self.freqs_complex = precompute_theta_pos_frequencies(self.args.dim // self.args.n_heads, self.args.max_seq_len * 2, device = self.args.device)
 
     # this LLaMa forward method is constructed for inference using the pre-trained model weights, so the seq_len is one
-    def forward(self, tokens: torch.Token, start_pos: int):
+    def forward(self, tokens: torch.Tensor, start_pos: int):
 
         #(batch_size, seq_len: 1)
         batch_size, seq_len = tokens.shape
