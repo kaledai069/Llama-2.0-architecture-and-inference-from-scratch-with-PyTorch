@@ -128,7 +128,8 @@ class EncoderBlock(nn.Module):
 # the infamous grouped multi-query self-attention with KV cache
 class SelfAttention(nn.Module):
     def __init__(self, args: ModelArgs):
-
+        super().__init__()
+        
         # number of heads for the key and value (grouped multi-query)
         self.n_kv_heads = args.n_heads if args.n_kv_heads is None else args.n_kv_heads
 
