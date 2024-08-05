@@ -2,7 +2,7 @@ from typing import Optional
 import torch
 import time
 from pathlib import Path
-import json__
+import json
 from sentencepiece import SentencePieceProcessor
 from tqdm import tqdm
 
