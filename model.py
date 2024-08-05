@@ -145,8 +145,8 @@ class SelfAttention(nn.Module):
         # learnable parameters
         self.wq = nn.Linear(args.dim, args.n_heads * self.head_dim, bias = False)
         # for KV cache implementation
-        self.wk = nn.Linear(args.dim, args.n_kv_heads * self.head_dim, bias = False)
-        self.wv = nn.Linear(args.dim, args.n_kv_heads * self.head_dim, bias = False)
+        self.wk = nn.Linear(args.dim, self.n_kv_heads * self.head_dim, bias = False)
+        self.wv = nn.Linear(args.dim, self.n_kv_heads * self.head_dim, bias = False)
 
         # concatenation head weights
         self.wo = nn.Linear(args.n_heads * self.head_dim, args.dim, bias = False)
