@@ -68,3 +68,20 @@ class LLaMA:
 
         return LLaMA(model, tokenizer, model_args)
 
+
+if __name__ == '__main__':
+    torch.manual_seed(0)
+
+    allow_cuda = False
+    device = 'cuda' if torch.cuda.is_available() and allow_cuda else 'cpu'
+
+    model = LLaMA.build(
+        checkpoints_dir = 'llama-2-7b/',
+        tokenizer_path = 'tokenizer.model',
+        load_model = True, 
+        max_seq_len = 1024,
+        max_batch_size = 3, 
+        device = device
+    )
+
+    print("Yes, the pretrained model weights have been loaded !!!")
